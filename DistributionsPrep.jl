@@ -40,7 +40,7 @@ distribution_constructors = Dict(
     "dirac" => dirac_delta_distribution
 )
 
-# Starting parameters for distributions (for variational inference)
+# Starting parameters for distributions for necessary cases
 distribution_params = Dict(
     "normal-params" => (0.0, 1.0),
     "beta-params" => (1.0, 1.0),
