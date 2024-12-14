@@ -1,5 +1,5 @@
 # JFOPPL (Ongoing project)
-A simple first-order probabilistic programming language in Julia. This PPL supports the following inference algorithms:
+A simple first-order probabilistic programming language in Julia. This PPL will support the following inference algorithms:
 - Importance Sampling
 - Metropolis Hastings
 - Gibbs Sampling
