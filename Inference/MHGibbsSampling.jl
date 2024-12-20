@@ -9,7 +9,7 @@ using .Utils: burn_chain, log_sample
 
 export Gibbs_samples
 
-### Gibbs sampling ###
+### MH within Gibbs ###
 
 function Gibbs_samples(g::Graph, num_samples; tmax=nothing, burn_frac=nothing, wandb_name=nothing, debug=false, verbose=false)
     sample_nodes, _ = split_nodes_into_sample_observe(g)
