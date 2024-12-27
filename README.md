@@ -2,7 +2,7 @@
 A simple first-order probabilistic programming language in Julia. This PPL will support the following inference algorithms:
 - Importance Sampling
 - Metropolis Hastings
-- Gibbs Sampling
+- Metropolis within Gibbs
 - Hamiltonian Monte Carlo
 - Varitational Inference
 
