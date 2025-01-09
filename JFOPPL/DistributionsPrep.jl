@@ -2,7 +2,7 @@ module DistributionsPrep
 
 using Random
 
-# Import custom distributions from the Distributions folder
+# Import custom distributions
 using .Distributions.NormalDistribution
 using .Distributions.CustomGamma
 using .Distributions.CustomExponential
