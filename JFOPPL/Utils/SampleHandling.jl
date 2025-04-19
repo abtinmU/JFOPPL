@@ -6,7 +6,7 @@ using LinearAlgebra
 
 # Flatten sample function
 function flatten_sample(sample)
-    if isa(sample, Array{Array})
+    if isa(sample, AbstractVector{<:AbstractVector})
         flat_sample = vcat([vec(element) for element in sample]...)
     else
         flat_sample = sample

@@ -1,7 +1,8 @@
 module CustomBeta
 
 using Random
-using .Utils: softplus, inverse_softplus
+using ..Utils.MathOps: softplus, inverse_softplus
+using Distributions: Beta
 
 const scaling_function = "softplus"
 positive_function, positive_inverse = if scaling_function == "softplus"
@@ -21,11 +22,11 @@ struct CustomBeta{T<:Real} <: ContinuousUnivariateDistribution
 end
 
 function Base.logpdf(d::CustomBeta, x)
-    concentration1 = positive_function(d.optim_concentration1)
-    concentration0 = positive_function(d.optim_concentration0)
-    return logpdf(Beta(concentration1, concentration0), x)
+    α = positive_function(d.optim_concentration1)
+    β = positive_function(d.optim_concentration0)
+    return Distributions.logpdf(Beta(α, β), x)
 end
-
+  
 function params(d::CustomBeta)
     return [positive_function(d.optim_concentration1), positive_function(d.optim_concentration0)]
 end

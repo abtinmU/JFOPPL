@@ -4,7 +4,8 @@ using Random
 using Statistics
 using LinearAlgebra
 using .BasicPrimitives: primitives, distributions
-using .Distributions
+using .DistributionsPrep
+using Distributions
 
 export AbstractSyntaxTree, eval, bind_functions, evaluate_program
 

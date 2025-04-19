@@ -14,9 +14,9 @@ function sample(dist::DeltaDistribution)
 end
 
 # Log probability for the delta distribution
-function log_prob(dist::DeltaDistribution, x0)
-    return (dist.x == x0) ? Inf : -Inf
-end
+function Base.logpdf(d::DeltaDistribution, x)
+    return d.x == x ? Inf : -Inf
+end 
 
 # Function to return different types of distributions based on the scheme
 function dirac_delta_distribution(x...; scheme="normal")

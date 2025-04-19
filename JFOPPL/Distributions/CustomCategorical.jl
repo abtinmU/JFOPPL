@@ -1,11 +1,13 @@
 module CustomCategorical
 
 using Random
+using Distributions: Categorical
+using StatsFuns: logsumexp
 
 struct CustomCategorical{T<:AbstractVector} <: DiscreteMultivariateDistribution
     logits::T
     function CustomCategorical(probs::T) where {T<:AbstractVector}
-        logits = log.(probs / (1 .- probs))
+        logits = logits = log.(probs) .- logsumexp(log.(probs))
         new(logits .- logsumexp(logits))
     end
 end

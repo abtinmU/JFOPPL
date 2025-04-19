@@ -1,5 +1,8 @@
 module DistributionsPrep
 
+using Distributions: Normal, Beta, Exponential, Uniform, Categorical, Bernoulli, Gamma, Dirichlet
+using StatsFuns: logsumexp
+
 using Random
 
 # Import custom distributions

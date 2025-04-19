@@ -20,17 +20,6 @@ struct Graph
     program::Any
 
     function Graph(graph_json::Vector{Any})
-        new(
-            graph_json[1],
-            graph_json[2]["V"],
-            graph_json[2]["A"],
-            graph_json[2]["P"],
-            graph_json[2]["Y"],
-            graph_json[3]
-        )
-    end
-
-    function Graph(graph_json::Vector{Any})
         g = new(
             graph_json[1],
             graph_json[2]["V"],

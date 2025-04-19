@@ -2,6 +2,7 @@ module Plotting
 
 using Random
 using Statistics
+using StatsBase: histogram2d
 using DataFrames
 using Plots
 
@@ -29,7 +30,7 @@ function custom_plots(program::Int, samples)
     plot_log = Dict{String, Any}()
 
     if program == 1 || program == 6 || program == 11
-        data = DataFrame([j => sample for (j, sample) in enumerate(samples)], [:sample, :mu])
+        data = DataFrame(sample = collect(1:length(samples)), mu = samples)
         plot_log["Program $program"] = create_histogram(data, :mu, "Program $program; mu")
     elseif program == 2 || program == 7 || program == 12
         data = DataFrame([j => vcat(parts...) for (j, parts) in enumerate(samples)], [:sample, :slope, :bias])

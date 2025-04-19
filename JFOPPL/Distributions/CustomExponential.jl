@@ -1,7 +1,8 @@
 module CustomExponential
 
 using Random
-using .Utils: softplus, inverse_softplus
+using ..Utils.MathOps: softplus, inverse_softplus
+using Distributions: Exponential
 
 const scaling_function = "softplus"
 positive_function, positive_inverse = if scaling_function == "softplus"
@@ -20,9 +21,9 @@ struct CustomExponential{T<:Real} <: ContinuousUnivariateDistribution
 end
 
 function Base.logpdf(d::CustomExponential, x)
-    rate = positive_function(d.optim_rate)
-    return logpdf(Exponential(rate), x)
-end
+    λ = positive_function(d.optim_rate)
+    return Distributions.logpdf(Exponential(λ), x)
+end  
 
 function params(d::CustomExponential)
     return [positive_function(d.optim_rate)]

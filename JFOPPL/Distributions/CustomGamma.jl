@@ -1,7 +1,8 @@
 module CustomGamma
 
 using Random
-using .Utils: softplus, inverse_softplus
+using ..Utils.MathOps: softplus, inverse_softplus
+using Distributions: Gamma
 
 const scaling_function = "softplus"
 positive_function, positive_inverse = if scaling_function == "softplus"
@@ -21,10 +22,10 @@ struct CustomGamma{T<:Real} <: ContinuousUnivariateDistribution
 end
 
 function Base.logpdf(d::CustomGamma, x)
-    concentration = positive_function(d.concentration)
-    rate = positive_function(d.optim_rate)
-    return logpdf(Gamma(concentration, rate), x)
-end
+    α = positive_function(d.concentration)
+    β = positive_function(d.optim_rate)
+    return Distributions.logpdf(Gamma(α, β), x)
+end  
 
 function params(d::CustomGamma)
     return [positive_function(d.concentration), positive_function(d.optim_rate)]

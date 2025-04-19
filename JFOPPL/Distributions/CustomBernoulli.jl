@@ -1,5 +1,6 @@
 module CustomBernoulli
 
+using Distributions: Bernoulli
 using Random
 
 struct CustomBernoulli{T<:Real} <: DiscreteUnivariateDistribution
@@ -10,7 +11,7 @@ struct CustomBernoulli{T<:Real} <: DiscreteUnivariateDistribution
 end
 
 function Base.logpdf(d::CustomBernoulli, x)
-    return logpdf(Bernoulli(logits=d.logits), x)
+    return Distributions.logpdf(Bernoulli(logits=d.logits), x)
 end
 
 function params(d::CustomBernoulli)

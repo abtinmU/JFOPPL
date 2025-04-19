@@ -1,7 +1,8 @@
 module CustomDirichlet
 
 using Random
-using .Utils: softplus, inverse_softplus
+using ..Utils.MathOps: softplus, inverse_softplus
+using Distributions: Dirichlet
 
 const scaling_function = "softplus"
 positive_function, positive_inverse = if scaling_function == "softplus"
@@ -20,9 +21,9 @@ struct CustomDirichlet{T<:AbstractVector} <: ContinuousMultivariateDistribution
 end
 
 function Base.logpdf(d::CustomDirichlet, x)
-    concentration = positive_function.(d.optim_concentration)
-    return logpdf(Dirichlet(concentration), x)
-end
+    α = positive_function.(d.optim_concentration)
+    return Distributions.logpdf(Dirichlet(α), x)
+end  
 
 function params(d::CustomDirichlet)
     return [positive_function.(d.optim_concentration)]
