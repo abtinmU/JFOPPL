@@ -2,16 +2,15 @@ module DiracDeltaDistribution
 
 using Random
 using Distributions
+import Random: rand
 
 # Type representing a delta distribution
 struct DeltaDistribution
     x::Any
 end
 
-# Sampling from the delta distribution always returns the same value
-function sample(dist::DeltaDistribution)
-    return dist.x
-end
+rand(::Random.AbstractRNG, dist::DeltaDistribution) = dist.x
+rand(dist::DeltaDistribution)                      = dist.x
 
 # Log probability for the delta distribution
 function Base.logpdf(d::DeltaDistribution, x)

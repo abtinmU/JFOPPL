@@ -3,6 +3,7 @@ module SampleHandling
 using Random
 using Statistics
 using LinearAlgebra
+using DataStructures: OrderedDict
 
 # Flatten sample function
 function flatten_sample(sample)

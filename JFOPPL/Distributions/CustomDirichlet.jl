@@ -2,7 +2,7 @@ module CustomDirichlet
 
 using Random
 using ..Utils.MathOps: softplus, inverse_softplus
-using Distributions: Dirichlet
+using Distributions: Dirichlet, DiscreteMultivariateDistribution
 
 const scaling_function = "softplus"
 positive_function, positive_inverse = if scaling_function == "softplus"

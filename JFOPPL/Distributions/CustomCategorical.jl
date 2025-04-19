@@ -1,7 +1,7 @@
 module CustomCategorical
 
 using Random
-using Distributions: Categorical
+using Distributions: Categorical, DiscreteMultivariateDistribution
 using StatsFuns: logsumexp
 
 struct CustomCategorical{T<:AbstractVector} <: DiscreteMultivariateDistribution

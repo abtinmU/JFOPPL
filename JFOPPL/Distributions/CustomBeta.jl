@@ -2,7 +2,7 @@ module CustomBeta
 
 using Random
 using ..Utils.MathOps: softplus, inverse_softplus
-using Distributions: Beta
+using Distributions: Beta, DiscreteMultivariateDistribution
 
 const scaling_function = "softplus"
 positive_function, positive_inverse = if scaling_function == "softplus"

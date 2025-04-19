@@ -6,7 +6,7 @@ using StatsFuns: logsumexp
 using Random
 
 # Import custom distributions
-using .Distributions.NormalDistribution
+using .Distributions.NormalDistribution: NormalDist
 using .Distributions.CustomGamma
 using .Distributions.CustomExponential
 using .Distributions.CustomBeta
@@ -31,7 +31,7 @@ distributions = [
 
 # Dictionary mapping distribution names to Julia distribution constructors
 distribution_constructors = Dict(
-    "normal" => Normal,
+    "normal" => NormalDist,
     "beta" => CustomBeta,
     "exponential" => CustomExponential,
     "uniform-continuous" => Uniform,

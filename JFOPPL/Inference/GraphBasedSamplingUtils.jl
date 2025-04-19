@@ -7,6 +7,9 @@ using Printf
 using DataStructures: TopologicalSorter
 using .BasicPrimitives: primitives
 using .EvaluationBasedSampling: eval
+using Zygote: gradient
+using Flux.Optimise: Adam, update!
+using Flux: params
 
 export Graph, evaluate_node, evaluate_graph, generate_IC, log_joint
 

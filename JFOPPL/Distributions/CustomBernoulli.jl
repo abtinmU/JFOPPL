@@ -1,6 +1,6 @@
 module CustomBernoulli
 
-using Distributions: Bernoulli
+using Distributions: Bernoulli, DiscreteMultivariateDistribution
 using Random
 
 struct CustomBernoulli{T<:Real} <: DiscreteUnivariateDistribution
