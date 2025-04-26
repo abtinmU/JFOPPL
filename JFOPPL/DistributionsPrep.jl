@@ -6,14 +6,14 @@ using StatsFuns: logsumexp
 using Random
 
 # Import custom distributions
-using .Distributions.NormalDistribution: NormalDist
-using .Distributions.CustomGamma
-using .Distributions.CustomExponential
-using .Distributions.CustomBeta
-using .Distributions.CustomDirichlet
-using .Distributions.CustomBernoulli
-using .Distributions.CustomCategorical
-using .Distributions.DiracDeltaDistribution: dirac_delta_distribution
+using .CustomDistributions.NormalDistribution: NormalDist
+using .CustomDistributions.CustomGamma: GammaDist
+using .CustomDistributions.CustomBeta: BetaDist
+using .CustomDistributions.CustomExponential: ExponentialDist
+using .CustomDistributions.CustomDirichlet: DirichletDist
+using .CustomDistributions.CustomCategorical: CategoricalDist
+using .CustomDistributions.CustomBernoulli: BernoulliDist
+using .CustomDistributions.DiracDeltaDistribution: dirac_delta_distribution
 
 # List of all supported distributions
 distributions = [
@@ -32,14 +32,14 @@ distributions = [
 # Dictionary mapping distribution names to Julia distribution constructors
 distribution_constructors = Dict(
     "normal" => NormalDist,
-    "beta" => CustomBeta,
-    "exponential" => CustomExponential,
+    "beta" => BetaDist,
+    "exponential" => ExponentialDist,
     "uniform-continuous" => Uniform,
-    "discrete" => CustomCategorical,
-    "bernoulli" => CustomBernoulli,
-    "gamma" => CustomGamma,
-    "dirichlet" => CustomDirichlet,
-    "flip" => CustomBernoulli,
+    "discrete" => CategoricalDist,
+    "bernoulli" => BernoulliDist,
+    "gamma" => GammaDist,
+    "dirichlet" => DirichletDist,
+    "flip" => BernoulliDist,
     "dirac" => dirac_delta_distribution
 )
 

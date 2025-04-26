@@ -7,7 +7,6 @@ using Printf
 using .EvaluationBasedSampling: evaluate_program
 using .GraphBasedSamplingUtils: evaluate_graph
 using ..Utils.SampleHandling: burn_chain, flatten_sample
-# using ..Utils.Plotting: log_sample   # no loggings for now
 
 export get_sample, prior_samples, calculate_effective_sample_size, resample_using_importance_weights, Metropolis_Hastings_samples
 
