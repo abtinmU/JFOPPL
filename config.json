@@ -1,0 +1,23 @@
+{
+    "wandb_run": true,
+    "mode": "graph",
+    "inference": "MH",
+    "num_samples": 1000,
+    "num_steps": 1000,
+    "num_samples_per_step": 100,
+    "learning_rate": 0.1,
+    "zero_b": false,
+    "tmax": 3600,
+    "compile": true,
+    "base_dir": "/path/to/base/dir",
+    "daphne_dir": "/path/to/daphne/dir",
+    "seed": 42,
+    
+    "deterministic_tests": [1, 2, 3],
+    "probabilistic_tests": [1, 2, 3],
+    
+    "homework2_programs": [1, 2, 3],
+    "homework3_programs": [1, 2, 3, 4],
+    "homework4_programs": [1, 2, 3, 4, 5],
+    "TTV_programs": [1, 2, 3]
+}
