@@ -6,7 +6,6 @@ using LinearAlgebra
 using Printf
 using .GraphBasedSamplingUtils: Graph, evaluate_graph, split_nodes_into_sample_observe, evaluate_node
 using ..Utils.SampleHandling: burn_chain, flatten_sample
-using ..Utils.Plotting: log_sample   # if that’s where it is
 
 export Gibbs_samples
 
